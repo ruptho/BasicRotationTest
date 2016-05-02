@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BasicRotationTest</string>
+    <string name="main_direction_north">North</string>
+    <string name="main_direction_northeast">NorthEast</string>
+    <string name="main_direction_east">East</string>
+    <string name="main_direction_southeast">SouthEast</string>
+    <string name="main_direction_south">South</string>
+    <string name="main_direction_southwest">SouthWest</string>
+    <string name="main_direction_west">West</string>
+    <string name="main_direction_northwest">NorthWest</string>
+    <string name="main_error">NorthWest</string>
+    <string name="main_header">rad|degrees</string>
+</resources>
