@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.GridView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements SensorEventListener {
@@ -25,10 +26,13 @@ public class MainActivity extends Activity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initialise ui
         mTvX = (TextView) findViewById(R.id.tvX);
         mTvY = (TextView) findViewById(R.id.tvY);
         mTvZ = (TextView) findViewById(R.id.tvZ);
         mTvDirection = (TextView) findViewById(R.id.tvDirection);
+
+        // initalise sensor stuff
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mRotation = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
@@ -45,6 +49,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             processRotation(event.values);
         } // else if(otherSensorEvents)...
     }
+
 
     private void processRotation(float[] rotationValues) {
         // a 3x3 rotation matrix, indexes as follows: (0,1,2; 3,4,5; 6,7,8)
@@ -74,6 +79,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         // additional comfort, display direction by using the rotation around the z axis
         mTvDirection.setText(getCompassText(orientationDegrees[0]));
     }
+
 
     private String getCompassText(double z) {
         String compassText = getString(R.string.main_error);
